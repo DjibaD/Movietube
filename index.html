@@ -1,40 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>MovieTube</title>
-</head>
-<body>
-    
-    <header>
-        <form  id="form">
-            <input type="text" placeholder="Search" id="search" class="search">
-        </form>
-    </header>
-    <div id="tags"></div>
-    <div id="myNav" class="overlay">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/137bde9409.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+    </head>
+    <body> 
+       
+      <header>
+           <h1>Welcome to Movie Query </h1>
+      </header>
+      <form id="search-form" >
+           <input type="search" placeholder=" " id="inputValue"/>
+            <button id="searchBtn"> Search By Title</button> 
+            <button id="genreBtn"> Search By Genre</button> 
+       </form> 
 
-        <!-- Button to close the overlay navigation -->
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-      
-        <!-- Overlay content -->
-        <div class="overlay-content" id="overlay-content"></div>
-        
-        <a href="javascript:void(0)" class="arrow left-arrow" id="left-arrow">&#8656;</a> 
-        
-        <a href="javascript:void(0)" class="arrow right-arrow" id="right-arrow" >&#8658;</a>
-
-      </div>
-    <main id="main"></main>
-    <div class="pagination">
-        <div class="page" id="prev">Previous Page</div>
-        <div class="current" id="current">1</div>
-        <div class="page" id="next">Next Page</div>
-
+       <div id="search-text">
+        <p id = "form-p"> </p>
+       </div>
+       
+       <div id="liked-movies">  
+          <h2> Liked Movies</h2>
+       </div>
+       <div id = "search-results" >
+              <!-- show search resuls-->
+        </div>
+        <div id = "genre-results" >
+          <!-- show search resuls-->
     </div>
+        <div class = "load-movies">
+          <div id="upcoming-movies">
+              <h2> Upcoming Movies </h2>
+             <!-- Show upcoming movies-->
+          </div>
+
+          <div id="popular-movies">
+              <h2> Popular movies </h2>
+            <!--Show popular movies-->
+         </div>
+        </div>
+
+     <div id = "modal"> 
+      <button id="close"><i class="far fa-times-circle fa-2x"></i></button>
+      <p id="detail-title"></p>
+      <img src=" " class = "detail-img">
+      <p id="overview"></p>
+      <p id = "release_date"></p>
+      <p id = "votes"> </p>
+      <p id ="trailer"></p>
+     </div>
 
     <script src="index.js"></script>
-</body>
+    </body>
 </html>
+© 2021 GitHub, Inc.
+Terms
+Privacy
