@@ -1,7 +1,7 @@
 const API_KEY = 'a5035759f1fe71a6fd596a87600d36d2';
 const apiURL = 'https://api.themoviedb.org/3/search/movie?api_key=88449d803a568a37169bac400f61bdee'
 const imgPath = 'https://image.tmdb.org/t/p/w1280'
-const popularURL = "https://api.themoviedb.org/3/movie/popular?api_key=88449d803a568a37169bac400f61bdee"
+const popularURL = "https://api.themoviedb.org/3/movie/popular?api_key=a5035759f1fe71a6fd596a87600d36d2"
 const upcomingURL = "https://api.themoviedb.org/3/movie/upcoming?api_key=88449d803a568a37169bac400f61bdee"
 const genreURL = "https://api.themoviedb.org/3/genre/movie/list?api_key=88449d803a568a37169bac400f61bdee"
 
@@ -79,4 +79,8 @@ genreBtn.addEventListener('click', (e) =>{
         }     
         }); 
     })
-})
+        // Once the genreBtn is clicked, hide the other movie divs
+        popularMovies.style.dispaly = 'none';
+        upcomingMovies.style.display = 'none';
+        likedMovies.style.display = 'none';  
+    })
