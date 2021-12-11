@@ -102,8 +102,34 @@ genreBtn.addEventListener('click', (e) =>{
                     searchResults.innerHTML = " ";
                     movies.results.forEach(movie => {
                         console.log(movies);
-                        
+                        showMovies(movie);
                     })
+                    // Clear the input box after search button is clicked
+                    form.reset();
                 })
+                    // Hide popular and upcoming movies when search movie is shown
+                    popularMovies.style.dispaly = "none";
+                    upcomingMovies.style.display = "none";
+                    likedMovies.style.display = "none";
             }
         })
+
+        // show results of searched movie
+        function showMovies(movie){
+
+            const movieResult = document.createElement('div')
+            const movieImage = document.createElement('img')
+            const movieTitle = document.createElement('span')
+            const likeBtn = document.createElement('button')
+            movieResult.classList.add('each-movie');
+            // if no poster, do not assign/display the movie
+            if(movie.poster_path !== null){
+                movieTitle.innerText = movie.title;
+                movieTitle.classList.add('title');
+                movieImage.src = imgPath + movie.poster_path;
+                likeBtn.textContent = "♡";
+
+                movieResult.append(movieImage, movieTitle, likeBtn);
+                searchResults.appendChild(movieResult);
+            }
+        }
