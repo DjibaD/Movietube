@@ -2,8 +2,8 @@ const API_KEY = 'a5035759f1fe71a6fd596a87600d36d2';
 const apiURL = 'https://api.themoviedb.org/3/search/movie?api_key=88449d803a568a37169bac400f61bdee'
 const imgPath = 'https://image.tmdb.org/t/p/w1280'
 const popularURL = "https://api.themoviedb.org/3/movie/popular?api_key=a5035759f1fe71a6fd596a87600d36d2"
-const upcomingURL = "https://api.themoviedb.org/3/movie/upcoming?api_key=88449d803a568a37169bac400f61bdee"
-const genreURL = "https://api.themoviedb.org/3/genre/movie/list?api_key=88449d803a568a37169bac400f61bdee"
+const upcomingURL = "https://api.themoviedb.org/3/movie/upcoming?api_key=a5035759f1fe71a6fd596a87600d36d2"
+const genreURL = "https://api.themoviedb.org/3/genre/movie/list?api_key=a5035759f1fe71a6fd596a87600d36d2"
 
 //grab the elements and assign a variable 
 
@@ -84,3 +84,26 @@ genreBtn.addEventListener('click', (e) =>{
         upcomingMovies.style.display = 'none';
         likedMovies.style.display = 'none';  
     })
+
+        // Search and display results
+        searchBtn.addEventListener('click', (e) =>{
+            e.preventDefault()
+
+            searchedMovie.textContent = `Showing results for: ${inputValue.value}`;
+
+            if(inputValue.value === ""){
+                alert("Please enter a movie title");
+            } else{
+                const newURL = `${apiURL}&query=${inputValue.value}`
+
+                fetch(newURL)
+                .then(res =>res.json())
+                .then(movies => {
+                    searchResults.innerHTML = " ";
+                    movies.results.forEach(movie => {
+                        console.log(movies);
+                        
+                    })
+                })
+            }
+        })
