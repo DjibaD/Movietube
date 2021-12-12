@@ -192,3 +192,28 @@ genreBtn.addEventListener('click', (e) =>{
                     })
                 })
             }) 
+
+            // Get upcoming movies
+
+            fetch(upcomingURL)
+                .then(res => res.json())
+                .then(movies => { 
+                    movies.results.slice(0,5).forEach(movie => {
+                        const movieResult = document.createElement('div')
+                        const movieTitle= document.createElement('span')
+                        const movieImage = document.createElement('img')
+                        const likeBtn = document.createElement('button')
+                        movieResult.classList.add("each-movie");
+                        movieTitle.innerText = movie.title;
+                        movieTitle.classList.add("title");
+                        movieImage.src = imgPath + movie.poster_path;
+                        likeBtn.textContent = "♡";
+                        movieResult.append(movieImage,movieTitle,likeBtn);
+                        upcomingMovies.append(movieResult);
+                        likeBtn.addEventListener('click', () => {
+                            likeBtn.textContent = "♥️";
+                            showLikedMovies(movie)
+                        })
+                    movieImage.addEventListener('click',() => showDetails(movie))
+                    })
+                })
