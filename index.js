@@ -153,3 +153,16 @@ genreBtn.addEventListener('click', (e) =>{
             })
             modal.style.display = 'block';
         }
+        // Show liked movies function
+        function showLikedMovies(movie){
+            console.log("clicked");
+            const likedResult = document.createElement('div')
+            const likedImage = document.createElement('img')
+            const likedTitle = document.createElement('span')
+            likedResult.classList.add('each-movie');
+            likedTitle.textContent = movie.title;
+            likedTitle.classList.add('title');
+            likedImage.src = imgPath + movie.poster_path;
+            likedResult.append(likedImage,likedTitle);
+            likedMovies.appendChild(likedResult);  
+        }
