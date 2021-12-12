@@ -132,4 +132,24 @@ genreBtn.addEventListener('click', (e) =>{
                 movieResult.append(movieImage, movieTitle, likeBtn);
                 searchResults.appendChild(movieResult);
             }
+            // On click calls showDetails function
+            movieImage.addEventListener('click', () => showDetails(movie))
+            likeBtn.addEventListener('click', () => {
+                likeBtn.textContent = "♥️";
+                likedMovies.style.display = "inline-block";
+                showLikedMovies(movie)
+            })
+        }
+        // On click display the details
+        function showDetails(movie){
+
+            displayTitle.textContent = movie.title;
+            displayImage.src = imgPath + movie.poster_path;
+            overView.textContent = movie.overview;
+            releaseDate.textContent = 'Rlease Date: ' + movie.release_date;
+            votes.textContent = 'Rating: ' + movie.vote_average + '/10';
+            closeBtn.addEventListener('click', () => {
+                modal.style.display = 'none'
+            })
+            modal.style.display = 'block';
         }
