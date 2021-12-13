@@ -138,6 +138,23 @@ function setGenre() {
         tagsEl.append(t);
     })
 }
+
+// Highlight selected genre
+
+function highlightSelection() {
+    const tags = document.querySelectorAll('.tag');
+    tags.forEach(tag => {
+        tag.classList.remove('highlight')
+    })
+    clearBtn()
+    if(selectedGenre.length !=0){   
+        selectedGenre.forEach(id => {
+            const hightlightedTag = document.getElementById(id);
+            hightlightedTag.classList.add('highlight');
+        })
+    }
+
+}
 // When header is clicked, go back one page 
 
 header.addEventListener('click', () => window.history.go(-1))
